@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { map, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-checked-out-books',
@@ -10,11 +11,15 @@ export class CheckedOutBooksComponent {
   constructor(private httpClient: HttpClient) {}
 
   private bookURL : string = 'https://www.googleapis.com/books/v1/volumes?q=harry+potter';
-
+  //public bookList : Observable<Book> = of([]);
   ngOnInit() {
-    const bookList = this.httpClient.get(this.bookURL);
+    this.getBooks();
   }
 
+  getBooks() : Observable<Book[]> {
+    return this.httpClient.get<{items: Book[]}>(this.bookURL).pipe(map(x=>x.items));
+    //this.bookList.subscribe(x => console.log("x is:" , x, "type of x: ", typeof(x)));
+  }
 
 
 }
