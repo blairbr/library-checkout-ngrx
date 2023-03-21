@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
+import { Book } from '../book.model';
 
 @Component({
   selector: 'app-checked-out-books',
@@ -13,7 +14,7 @@ export class CheckedOutBooksComponent {
   private bookURL : string = 'https://www.googleapis.com/books/v1/volumes?q=harry+potter';
   //public bookList : Observable<Book> = of([]);
   ngOnInit() {
-    this.getBooks();
+    this.getBooks().subscribe(x=>console.log("pizza", x));
   }
 
   getBooks() : Observable<Book[]> {
