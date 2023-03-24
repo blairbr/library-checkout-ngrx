@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LibraryBooksComponent } from './library-books/library-books.component';
 import { CheckedOutBooksComponent } from './checked-out-books/checked-out-books.component';
+import { Facade } from './state/facade';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { CheckedOutBooksComponent } from './checked-out-books/checked-out-books.
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [Facade],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

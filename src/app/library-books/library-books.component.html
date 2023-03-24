@@ -1,7 +1,8 @@
 <h2>Available Books</h2>
 <div *ngIf="(bookList$ | async)"></div>
 <div *ngFor="let book of bookList$ | async">
-    {{book.volumeInfo.title}}
     <br>
-    {{book.volumeInfo.authors}}
+    {{book.volumeInfo.title}} by {{book.volumeInfo.authors}}
+    <button (click)="checkOutLibraryBook()"> Check Out </button>
+
 </div>

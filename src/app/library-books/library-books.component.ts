@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { map, Observable, of } from 'rxjs';
 import { Book } from '../book.model';
+import { Facade } from '../state/facade';
 
 @Component({
   selector: 'app-library-books',
@@ -21,5 +22,10 @@ export class LibraryBooksComponent {
     return this.bookList$;
   }
 
-  constructor(private httpClient: HttpClient) {}
+  public checkOutLibraryBook() : void{
+    console.log("yay you checked out a library book in the library books component");
+    this.facade.checkOutLibraryBook();
+  }
+
+  constructor(private httpClient: HttpClient, private facade: Facade) {}
 }
