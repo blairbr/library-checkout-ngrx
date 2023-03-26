@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LibraryBooksComponent } from './library-books/library-books.component';
 import { CheckedOutBooksComponent } from './checked-out-books/checked-out-books.component';
-import { StateObservable, Store, StoreModule } from '@ngrx/store';
+import { Store, StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
