@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { map, Observable, of } from 'rxjs';
+import { map, tap, Observable, of } from 'rxjs';
 import { Book } from '../book.model';
 import { Facade } from '../state/facade';
 
@@ -18,7 +18,11 @@ export class LibraryBooksComponent {
   }
 
   public getBooks() : Observable<Book[]> {
-    this.bookList$ = this.httpClient.get<{items: Book[]}>(this.bookURL).pipe(map(x=>x.items));
+    this.bookList$ = this.httpClient.get<{items: Book[]}>(this.bookURL).pipe(
+      tap(x=>console.log("GET BOOKS PIPE", x)),
+      map(x=>x.items)
+      
+      );
     return this.bookList$;
   }
 

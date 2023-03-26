@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Actions } from '@ngrx/effects';
+import { checkOutBook } from './actions'
 import { StoreModule } from '@ngrx/store';
+
 
 
 @Injectable({
@@ -12,7 +15,9 @@ export class Facade {
 
     public checkOutLibraryBook() {
         console.log("yay you checked out a library book in the facade");
+
+        this.store.dispatch(checkOutBook({ id: 'bookId1' }));
     }
 
-    constructor(store: Store) {}
+    constructor(private store: Store) {}
 }
