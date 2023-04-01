@@ -3,13 +3,35 @@ import { Book } from '../book.model'
 import * as BookActions from './actions'
 import { map } from 'rxjs/operators'
 
-export const initialBookState: Book = {id: '', volumeInfo: { title: '', description: '', authors:[]}, checkedOut: false};
+export const initialBookArrayState: Book[] = [];
+export const initialBookState: Book = {id:'', volumeInfo: {title:'', authors: [''], description: ''}, checkedOut: false};
 
-export const initialState: ReadonlyArray<boolean> = [];
 
-export const collectionReducer = createReducer(
-  initialState,
-  on(BookActions.checkOutBook, (state, { id }) =>
-    state.map((checkedOut) => checkedOut = true)
-  ),
-);
+const book2 : Book = {
+  id: 'hello',
+  volumeInfo: {
+      title: 'harry potter and the prisoner of azkaban',
+      authors: ['jk rowling'],
+      description: 'best book ever',
+  },
+  checkedOut: false
+}
+
+export const bookArrayReducer = createReducer(
+  initialBookArrayState,
+  on(BookActions.checkOutBook, 
+    (state : Book[], { book }): Book[] => (
+      {
+      ...state
+  })
+));
+
+export const bookReducer = createReducer(
+  initialBookState,
+  on(BookActions.changeCheckedOutStatus, 
+    (state : Book, { book }): Book => (
+      {
+      ...state,
+      checkedOut: !book.checkedOut
+  })
+));
