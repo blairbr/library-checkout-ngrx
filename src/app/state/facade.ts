@@ -29,7 +29,7 @@ export class Facade {
     }
 
     public changeCheckedOutStatus() {
-      console.log("yay you hit changedChecked Out status n the facade");
+      console.log("changedChecked Out status in the facade");
 
       this.store.dispatch(changeCheckedOutStatus({ book: book2 }));
   }
