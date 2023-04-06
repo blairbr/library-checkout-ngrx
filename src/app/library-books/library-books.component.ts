@@ -31,10 +31,5 @@ export class LibraryBooksComponent {
     this.facade.checkOutLibraryBook();
   }
 
-  public changeCheckedOutStatus() : void{
-    console.log("changed checked out status in the component");
-    this.facade.changeCheckedOutStatus();
-  }
-
   constructor(private httpClient: HttpClient, private facade: Facade) {}
 }

@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { LibraryBooksComponent } from './library-books/library-books.component';
 import { CheckedOutBooksComponent } from './checked-out-books/checked-out-books.component';
 import { Store, StoreModule } from '@ngrx/store';
-import { bookArrayReducer, bookReducer } from './state/reducer';
+import { booksReducer } from './state/books.reducer';
+import { collectionReducer } from './state/collection.reducer';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { bookArrayReducer, bookReducer } from './state/reducer';
   imports: [
     BrowserModule,
     HttpClientModule,
-    StoreModule.forRoot({ book: bookReducer, books: bookArrayReducer }),
+    StoreModule.forRoot({ books: booksReducer, collection: collectionReducer }),
+    //TODO change this
   ],
   providers: [ Store ],
   bootstrap: [AppComponent]

@@ -3,7 +3,6 @@
 <div *ngFor="let book of bookList$ | async">
     <br>
     {{book.volumeInfo.title}} by {{book.volumeInfo.authors}}
-    <!-- <button (click)="checkOutLibraryBook()"> Check Out </button> -->
-    <button (click)="changeCheckedOutStatus()"> Check Out </button>
+    <button (click)="checkOutLibraryBook()"> Check Out </button>
 
 </div>
