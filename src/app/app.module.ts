@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LibraryBooksComponent } from './library-books/library-books.component';
 import { CheckedOutBooksComponent } from './checked-out-books/checked-out-books.component';
 import { Store, StoreModule } from '@ngrx/store';
+import { bookArrayReducer, bookReducer } from './state/reducer';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { Store, StoreModule } from '@ngrx/store';
   imports: [
     BrowserModule,
     HttpClientModule,
-    StoreModule.forRoot({})
+    StoreModule.forRoot({ book: bookReducer, books: bookArrayReducer }),
   ],
   providers: [ Store ],
   bootstrap: [AppComponent]

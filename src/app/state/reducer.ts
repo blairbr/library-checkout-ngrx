@@ -23,7 +23,7 @@ const book2: Book = {
 export const bookArrayReducer = createReducer(
   initialBookArrayState,
   on(BookActions.checkOutBook, (state: Book[], { book }): Book[] => ({
-    ...state,
+    ...state
   }))
 );
 
