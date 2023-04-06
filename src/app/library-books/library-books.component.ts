@@ -26,10 +26,11 @@ export class LibraryBooksComponent {
     return this.bookList$;
   }
 
-  public checkOutLibraryBook() : void{
-    console.log("yay you checked out a library book in the library books component");
-    this.facade.checkOutLibraryBook();
+  public checkOutLibraryBook(bookId:string) : void{
+    this.facade.addBookToCollection(bookId);
   }
 
   constructor(private httpClient: HttpClient, private facade: Facade) {}
 }
+// 1) fix the initial state - look at example to see how this was done
+// 2) get actions to fire

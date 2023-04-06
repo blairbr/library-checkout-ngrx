@@ -8,7 +8,10 @@ export const initialBookArrayState: Book[] = [];
 export const booksReducer = createReducer(
   initialBookArrayState,
   on(BookActions.BooksApiActions.retrievedBookList, (_state, { books }) => books)
+  
 );
+
+//to get rid of compilation errors where 'state is declared but never read' - add an underscore
 
 
 // export const initialBookState: Book = {

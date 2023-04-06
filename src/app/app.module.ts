@@ -19,9 +19,8 @@ import { collectionReducer } from './state/collection.reducer';
     BrowserModule,
     HttpClientModule,
     StoreModule.forRoot({ books: booksReducer, collection: collectionReducer }),
-    //TODO change this
   ],
-  providers: [ Store ],
+  // providers: [ Store ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

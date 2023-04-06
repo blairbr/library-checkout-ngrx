@@ -1,30 +1,45 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Actions } from '@ngrx/effects';
-import { BooksActions, BooksApiActions} from './actions'
+import { BooksActions, BooksApiActions } from './actions';
 import { StoreModule } from '@ngrx/store';
 import { Book } from '../book.model';
+import { selectBookCollection, selectBooks } from './selectors';
 
-const book2 : Book = {
+const book2: Book = {
   id: 'hello',
   volumeInfo: {
-      title: 'harry potter and the prisoner of azkaban',
-      authors: ['jk rowling'],
-      description: 'best book ever',
+    title: 'harry potter and the prisioner...',
+    authors: ['jk rowling'],
+    description: 'best book ever',
   },
-  checkedOut: false
-}
+  checkedOut: false,
+};
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class Facade {
+  books$ = this.store.select(selectBooks);
+  bookCollection$ = this.store.select(selectBookCollection);
 
-    public checkOutLibraryBook() {
-        console.log("yay you checked out a library book in the facade");
+  public addBookToCollection(bookId: string) {
+    console.log("Hit ADD BOOK TO COLLECTION line 27 in facade with bookId: ", bookId)
+    this.store.dispatch(BooksActions.addBook({ bookId }));
+  }
+ 
+  onRemove(bookId: string) {
+    this.store.dispatch(BooksActions.removeBook({ bookId }));
+  }
 
-        this.store.dispatch(BooksActions.checkOutBook({ book: book2 }));
-    }
-
-    constructor(private store: Store) {}
+  constructor(private store: Store) {}
 }
+  // onAdd(bookId: string) {
+  //   this.store.dispatch(BooksActions.addBook({ bookId }));
+  // }
+
+  // public checkOutLibraryBook() {
+  //   console.log('yay you checked out a library book in the facade');
+
+  //   this.store.dispatch(BooksActions.checkOutBook({ book: book2 }));
+  // }
