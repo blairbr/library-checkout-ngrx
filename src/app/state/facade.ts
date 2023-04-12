@@ -27,6 +27,12 @@ export class Facade {
     console.log("Hit ADD BOOK TO COLLECTION line 27 in facade with bookId: ", bookId)
     this.store.dispatch(BooksActions.addBook({ bookId }));
   }
+
+  public checkOutLibraryBook(book : Book) {
+    console.log('yay you checked out a library book in the facade');
+
+    this.store.dispatch(BooksActions.checkOutBook({ book: book2 }));
+  }
  
   onRemove(bookId: string) {
     this.store.dispatch(BooksActions.removeBook({ bookId }));
@@ -38,11 +44,6 @@ export class Facade {
   //   this.store.dispatch(BooksActions.addBook({ bookId }));
   // }
 
-  // public checkOutLibraryBook() {
-  //   console.log('yay you checked out a library book in the facade');
-
-  //   this.store.dispatch(BooksActions.checkOutBook({ book: book2 }));
-  // }
 
 
   //store - single JS object, accessible to all UI, anything that represents the app data. Cannot directly modify store

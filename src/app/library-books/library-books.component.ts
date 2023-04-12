@@ -27,8 +27,9 @@ export class LibraryBooksComponent {
     return this.bookList$;
   }
 
-  public checkOutLibraryBook(bookId:string) : void{
-    this.facade.addBookToCollection(bookId);
+  public checkOutLibraryBook(book : Book) : void{
+    //this.facade.addBookToCollection(bookId);
+    this.facade.checkOutLibraryBook(book);
   }
 
   constructor(private httpClient: HttpClient, private facade: Facade, private store: Store) {}
