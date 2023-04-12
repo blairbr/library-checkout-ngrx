@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -8,6 +8,7 @@ import { CheckedOutBooksComponent } from './checked-out-books/checked-out-books.
 import { Store, StoreModule } from '@ngrx/store';
 import { booksReducer } from './state/books.reducer';
 import { collectionReducer } from './state/collection.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { collectionReducer } from './state/collection.reducer';
     BrowserModule,
     HttpClientModule,
     StoreModule.forRoot({ books: booksReducer, collection: collectionReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   // providers: [ Store ],
   bootstrap: [AppComponent]

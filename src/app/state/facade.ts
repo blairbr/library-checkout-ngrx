@@ -43,3 +43,16 @@ export class Facade {
 
   //   this.store.dispatch(BooksActions.checkOutBook({ book: book2 }));
   // }
+
+
+  //store - single JS object, accessible to all UI, anything that represents the app data. Cannot directly modify store
+  // reducers update the store.
+  // {
+  //   books: [],
+  //   user: {},
+  //   library: []
+  // }
+
+
+
+

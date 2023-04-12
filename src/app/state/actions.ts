@@ -1,4 +1,4 @@
-import { createAction, createActionGroup, props } from "@ngrx/store";
+import { createAction, createActionGroup, emptyProps, props } from "@ngrx/store";
 import { Book } from "../book.model";
 
 export const BooksActions = createActionGroup({
@@ -6,7 +6,7 @@ export const BooksActions = createActionGroup({
     events: {
       'Add Book': props<{ bookId: string }>(),
       'Remove Book': props<{ bookId: string }>(),
-      'Check Out Book': props<{ book: Book}>()
+      'Check Out Book': props<{ book: Book }>()
     },
   });
    
@@ -14,12 +14,13 @@ export const BooksApiActions = createActionGroup({
     source: 'Books API',
     events: {
       'Retrieved Book List': props<{ books: Book[] }>(),
+      'Get All Books': emptyProps()
     },
 });
 
 //readonly im guessing was just for the books retrieved from the API so you cant fiddle w the list
 // export const checkOutBook = createAction('[Library Book] Check Out Book', props<{ book: Book }>());
 
-// export const checkInBook = createAction('[Library Book] Check In Book', props<{ book: Book }>());
+export const checkInBook = createAction('[Library Book] Check In Book', props<{ book: Book }>());
 
 // export const changeCheckedOutStatus = createAction('[Library Book] Change Checked Out Status', props<{ book: Book }>());
