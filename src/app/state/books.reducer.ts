@@ -9,9 +9,10 @@ export const booksReducer = createReducer(
   initialBookArrayState,
   on(BookActions.BooksApiActions.retrievedBookList, (_state, { books }) => books),
 //getting closer. want to flip the checked out status on the book and then return the modified state
-  on(BookActions.BooksActions.checkOutBook, (state, { book }) => state)
+  on(BookActions.BooksActions.checkOutBook, (state, { book }) => 
+  ({ ...state, book: book.checkedOut}) //still need to change this so it's actually flipping it
   
-);
+));
 
 //to get rid of compilation errors where 'state is declared but never read' - add an underscore
 
