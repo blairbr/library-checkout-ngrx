@@ -31,7 +31,7 @@ export class Facade {
   public checkOutLibraryBook(book : Book) {
     console.log('yay you checked out a library book in the facade');
 
-    this.store.dispatch(BooksActions.checkOutBook({ book: book2 }));
+    this.store.dispatch(BooksActions.checkOutBook({ book: book }));
   }
  
   onRemove(bookId: string) {
