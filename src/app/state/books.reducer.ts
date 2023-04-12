@@ -42,11 +42,11 @@ export const booksReducer = createReducer(
 
 // export const bookReducer = createReducer(
 //   initialBookState,
-//   on(
+//   on(  
 //     BookActions.BooksActions.checkOutBook,
 //     (state: Book, { book }): Book => ({
 //       ...state,
-//       checkedOut: !book.checkedOut,
+//       checkedOut: !book.checkedOut, 
 //     })
 //   )
 // );
