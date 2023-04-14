@@ -21,7 +21,7 @@ export class LibraryBooksComponent {
 
   public getBooks() : Observable<Book[]> {
     this.bookList$ = this.httpClient.get<{items: Book[]}>(this.bookURL).pipe(
-      tap(x=>console.log("GET BOOKS PIPE", x)),
+      tap(x=>console.log("GET BOOKS PIPE", "books: ", x)),
       map(x=>x.items),
       );
     return this.bookList$;
@@ -34,5 +34,4 @@ export class LibraryBooksComponent {
 
   constructor(private httpClient: HttpClient, private facade: Facade, private store: Store) {}
 }
-// 1) fix the initial state - look at example to see how this was done
-// 2) get actions to fire
+// 1) the whole book object comes in rather than it matching the interface created... why?
