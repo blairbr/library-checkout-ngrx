@@ -22,7 +22,8 @@ export class LibraryBooksComponent {
   public getBooks() : Observable<Book[]> {
     this.bookList$ = this.httpClient.get<{items: Book[]}>(this.bookURL).pipe(
       tap(x=>console.log("GET BOOKS PIPE", "books: ", x)),
-      map(x=>x.items),
+      map(x=>x.items), //why does changing the name from items to books break the display??
+
       );
     return this.bookList$;
   }
