@@ -23,7 +23,7 @@ export class LibraryBooksComponent {
     this.bookList$ = this.httpClient.get<{items: Book[]}>(this.bookURL).pipe(
       tap(x=>console.log("GET BOOKS PIPE", "books: ", x)),
       map(x=>x.items), //why does changing the name from items to books break the display??
-
+//here need to map into each book and give it the checked out property?
       );
     return this.bookList$;
   }
