@@ -22,14 +22,19 @@ export class LibraryBooksComponent {
   public getBooks() : Observable<Book[]> {
     this.bookList$ = this.httpClient.get<{items: Book[]}>(this.bookURL).pipe(
       tap(x=>console.log("GET BOOKS PIPE", "books: ", x)),
-      map(x=>x.items), //why does changing the name from items to books break the display??
-//here need to map into each book and give it the checked out property?
+      map(x=>x.items),
+     
+      // map(x=>x.map(book=> ({...book, checkedOut: false}) )),
+      // tap(x => console.log("After setting checked out to false... maybe?", x))
       );
+
     return this.bookList$;
   }
 
+  //why does changing the name from items to books break the display??
+//here need to map into each book and give it the checked out property?
+
   public checkOutLibraryBook(book : Book) : void{
-    //this.facade.addBookToCollection(bookId);
     this.facade.checkOutLibraryBook(book);
   }
 

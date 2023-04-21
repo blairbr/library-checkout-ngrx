@@ -4,7 +4,7 @@ import { Actions } from '@ngrx/effects';
 import { BooksActions, BooksApiActions } from './actions';
 import { StoreModule } from '@ngrx/store';
 import { Book } from '../book.model';
-import { selectBookCollection, selectBooks } from './selectors';
+//import { selectBookCollection, selectBooks } from './selectors';
 
 const book2: Book = {
   id: 'hello',
@@ -20,31 +20,16 @@ const book2: Book = {
   providedIn: 'root',
 })
 export class Facade {
-  books$ = this.store.select(selectBooks);
-  bookCollection$ = this.store.select(selectBookCollection);
-
-  public addBookToCollection(bookId: string) {
-    console.log("Hit ADD BOOK TO COLLECTION line 27 in facade with bookId: ", bookId)
-    this.store.dispatch(BooksActions.addBook({ bookId }));
-  }
+ // books$ = this.store.select(selectBooks);
 
   public checkOutLibraryBook(book : Book) {
     console.log('yay you checked out a library book in the facade');
 
     this.store.dispatch(BooksActions.checkOutBook({ book: book }));
   }
- 
-  onRemove(bookId: string) {
-    this.store.dispatch(BooksActions.removeBook({ bookId }));
-  }
 
   constructor(private store: Store) {}
 }
-  // onAdd(bookId: string) {
-  //   this.store.dispatch(BooksActions.addBook({ bookId }));
-  // }
-
-
 
   //store - single JS object, accessible to all UI, anything that represents the app data. Cannot directly modify store
   // reducers update the store.
