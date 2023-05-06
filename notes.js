@@ -13,3 +13,13 @@ interface Person {
   age: number
 }
 //so adding a third property isnt as easy, could be optional/nullable etc but if you're not defining the type or structure... ?
+let recipe = {
+    name: "Spaghetti",
+    ingredients: ["egg", "salt"]
+}
+
+let newRecipe = {...recipe, ingredients: [...recipe.ingredients, "cream"] };
+let recipeWithEggWhites = { ...recipe, ingredients: recipe.ingredients.map(x => x === "egg" ? "egg white" : x) }
+let recipeWithEggWhites2 = { ...recipe, ingredients: recipe.ingredients.map(ingredient => ingredient === "egg" ? "egg white" : ingredient) }
+let egglessRecipe = {...recipe, ingredients: recipe.ingredients.filter(x=>x!=="egg")};
+console.log(egglessRecipe);
