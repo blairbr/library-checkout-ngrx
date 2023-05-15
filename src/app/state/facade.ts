@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Actions } from '@ngrx/effects';
 import { BooksActions, BooksApiActions } from './actions';
-import { StoreModule } from '@ngrx/store';
 import { Book } from '../book.model';
 //import { selectBookCollection, selectBooks } from './selectors';
 

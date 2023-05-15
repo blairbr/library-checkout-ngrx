@@ -41,3 +41,10 @@ export class LibraryBooksComponent {
   constructor(private httpClient: HttpClient, private facade: Facade, private store: Store) {}
 }
 // 1) the whole book object comes in rather than it matching the interface created... why?
+
+
+//NOTES:
+
+//1) look at the unchecked and checked updates for pending changes
+//2) look at the adapters (combination of map and array so it's iterable and can maintain an order)
+//3) books interface check line 44 in pending update ts for getAs example so that it returns certain properties only

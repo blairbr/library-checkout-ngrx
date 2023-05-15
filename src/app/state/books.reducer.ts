@@ -17,4 +17,5 @@ export const booksReducer = createReducer(
   on(BookActions.BooksApiActions.retrievedBookList, (state, { books }) => ({...state, books})),
   on(BookActions.BooksActions.checkOutBook, (state, { book }) => state
   
+  
 ));
