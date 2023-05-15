@@ -12,10 +12,11 @@ export const initialBookArrayState: Book[] = [];
 //     'checkedin':  
 //   }
 // }
+//
 export const booksReducer = createReducer(
   initialBookArrayState,
   on(BookActions.BooksApiActions.retrievedBookList, (state, { books }) => ({...state, books})),
   on(BookActions.BooksActions.checkOutBook, (state, { book }) => state
   
-  
+
 ));
